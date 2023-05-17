@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JTMS - Java Task Management System</title>
-    <link th:href="@{/css/main.css}" rel="stylesheet" />
+<head th:replace="~{fragments/header.html}">
 </head>
-<body>
-    <h1 class="mt-2 text-xl">Hello</h1>
+<body class="bg-gray-100 font-family-karla flex">
+<aside th:replace="~{fragments/sidebar.html}">
+</aside>
+
+<div class="relative w-full flex flex-col h-screen overflow-y-hidden">
+    <header th:replace="~{fragments/desktop-nav.html}">
+    </header>
+
+    <header th:replace="~{fragments/mobile-nav.html}">
+    </header>
+
+    <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
+        <main class="w-full flex-grow p-6">
+            <h1 class="text-3xl text-black pb-6">Welcome!</h1>
+            This is the main page
+        </main>
+
+        <footer th:replace="~{fragments/footer}"></footer>
+    </div>
+
+</div>
 </body>
 </html>

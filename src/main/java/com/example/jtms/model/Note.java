@@ -17,9 +17,9 @@ public class Note {
     private int id;
     private String body;
     @ManyToOne(targetEntity = Task.class)
-    private int task;
+    private Task task;
     @ManyToOne(targetEntity = User.class)
-    private int user;
+    private User user;
     @Embedded
     private Audit audit = new Audit();
 

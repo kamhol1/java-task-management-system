@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header.html}">
+</head>
+<body class="bg-gray-100 font-family-karla flex">
+<aside th:replace="~{fragments/sidebar.html}">
+</aside>
+
+<div class="relative w-full flex flex-col h-screen overflow-y-hidden">
+    <header th:replace="~{fragments/desktop-nav.html}">
+    </header>
+
+    <header th:replace="~{fragments/mobile-nav.html}">
+    </header>
+
+    <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
+        <main class="w-full flex-grow p-6">
+            <h1 class="text-3xl text-black pb-6">All tasks</h1>
+
+            <div class="bg-white overflow-auto">
+                <table class="min-w-full bg-white">
+                    <thead class="bg-gray-800 text-white">
+                        <tr>
+                            <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Name</th>
+                            <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Client</th>
+                            <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700">
+                        <tr th:each="task: ${tasks}">
+                            <td th:text="${task.title}" class="w-1/3 text-left py-3 px-4"></td>
+                            <td th:text="${task.client?.lastName}" class="w-1/3 text-left py-3 px-4"></td>
+                            <td class="text-left py-3 px-4"><a th:text="${task.body}" class="hover:text-blue-500" href=""></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+
+        <footer th:replace="~{fragments/footer}"></footer>
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,9 +1,12 @@
 package com.example.jtms.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Table(name = "clients")
@@ -19,5 +22,7 @@ public class Client {
     private String lastName;
     private String phone;
     private String email;
+    @OneToMany(mappedBy = "client")
+    private List<Task> tasks;
 
 }
